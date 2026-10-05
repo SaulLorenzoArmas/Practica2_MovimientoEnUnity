@@ -1,3 +1,4 @@
 
 # Practica2_MovimientoEnUnity
-<img width="282" height="156" alt="Grabación 2026-10-04 182512" src="https://github.com/user-attachments/assets/d88b5e62-25fe-46e1-9158-b8cbac4c5b13" />
+<img width="2878" height="1584" alt="Grabación 2026-10-04 182512 (1)" src="https://github.com/user-attachments/assets/1d06f077-a675-4889-b699-630b95ed85f4" />
+
