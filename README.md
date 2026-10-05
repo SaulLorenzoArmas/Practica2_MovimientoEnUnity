@@ -13,11 +13,15 @@ Entre las estructuras y componentes más utilizados se encuentran `Transform`, `
 
 En este ejercicio se prepara un desplazamiento mediante un vector `Vector3`. Al pulsar la barra espaciadora, el objeto cambia de posición según los valores en el Inspector.
 
+También comentar que se usa `GetKeyDown` para que el movimiento solo se produzca una vez al pulsar la tecla.
+
 <img width="2878" height="1584" alt="Grabación 2026-10-04 182512 (1)" src="https://github.com/user-attachments/assets/1d06f077-a675-4889-b699-630b95ed85f4" />
 
 ### Ejercicio 6
 
 Aquí se comprueba cómo interviene la velocidad en el movimiento del objeto. Cada vez que se pulsa una tecla de dirección, se calcula el desplazamiento y se muestra el resultado en la consola.
+
+También comentar el uso de `GetAxisRaw`para que de un valor fijo/entero (-1, 0 o 1) en lugar de un valor intermedio/con decimales.
 
 <img width="2878" height="1574" alt="VideoEjercicio6" src="https://github.com/user-attachments/assets/f53efa20-5965-4af5-8832-256a6fbbd65e" />
 
@@ -45,6 +49,8 @@ Al duplicar la velocidad y mantener la misma dirección, se aprecia que el cubo 
 
 <img width="2876" height="1574" alt="VideoEjercicio8_b" src="https://github.com/user-attachments/assets/38baa94c-7708-4c31-9aa0-19b8cbcaec4c" />
 
+El efecto tanto de duplicar el vector de movimiento como de duplicar la velocidad es el mismo, ya que ambos aumentan la distancia recorrida en cada frame. Sin embargo, la forma correcta de hacerlo es mediante la variable `velocidad`, ya que sino pueden fallar otros cálculos que dependan de la magnitud del vector de dirección.
+
 #### Apartado 8c
 
 Al utilizar una velocidad menor que uno, se aprecia que el cubo continúa avanzando en la dirección indicada, pero se desplaza más lentamente y recorre una menor distancia.
@@ -59,7 +65,9 @@ Al colocar el cubo en una posición con una altura mayor que cero, se aprecia qu
 
 #### Apartado 8e
 
-Al intercambiar el sistema de referencia local y el mundial, se aprecia que el resultado cambia cuando el cubo está girado. En el espacio local se mueve respecto a sus propios ejes, mientras que en el espacio mundial sigue los ejes generales de la escena.
+Al intercambiar el sistema de referencia local y el mundial,no se aprecian cambios. Solo se apreciaría si el cubo estubiera girado. En este caso, como el cubo no está rotado, el movimiento es el mismo en ambos sistemas de referencia. 
+
+En el caso de que el cubo estuviera rotado, para que el movimiento fuera el esperado habría que utilizar el sistema de referencia mundial, ya que el local estaría orientado de forma diferente.
 
 <img width="2864" height="1576" alt="VideoEjercicio8_e" src="https://github.com/user-attachments/assets/94699438-77a2-4a38-b990-a5ddf279be8d" />
 
@@ -67,17 +75,19 @@ Al intercambiar el sistema de referencia local y el mundial, se aprecia que el r
 
 En este ejercicio se añaden controles directos para manejar los objetos de la escena. El cubo se mueve con las flechas y la esfera con las teclas W, A, S y D.
 
+Asi pues, cabe destacar que al obtener el valor de `Input.GetAxis` se obtiene un valor entre -1 y 1, que sirve tanto para el movimiento con las flechas como para el movimiento con las teclas W, A, S y D.
+
 <img width="2872" height="1580" alt="VideoEjercicio9" src="https://github.com/user-attachments/assets/8f508a19-7563-450a-a7d7-e48f17e73543" />
 
 ### Ejercicio 10
 
-Se mejora el movimiento del ejercicio anterior utilizando `Time.deltaTime`. Gracias a ello, el objeto mantiene una velocidad más estable aunque cambie la cantidad de frames generados por segundo.
+Se mejora el movimiento del ejercicio anterior utilizando `Time.deltaTime`. Gracias a ello, el objeto mantiene una velocidad más estable aunque se cambie de ordenador o este tenga una potencia diferente. 
 
 <img width="2872" height="1578" alt="VideoEjercicio10" src="https://github.com/user-attachments/assets/b984b9bc-5d61-447e-aec3-cb8c3bc7ed58" />
 
 ### Ejercicio 11
 
-En este punto el cubo deja de moverse únicamente con el teclado y comienza a seguir a la esfera. Para que no acelere cuando está más lejos, se normaliza el vector que marca la dirección hacia el objetivo. Además de esto, se utiliza `Time.deltaTime` para mantener una velocidad constante independientemente de la potencia del ordenador.
+En este punto el cubo deja de moverse únicamente con el teclado y comienza a seguir a la esfera. Para que no acelere cuando está más lejos, se normaliza el vector que marca la dirección hacia el objetivo. Además de esto, se utiliza `Time.deltaTime` para mantener una velocidad constante.
 
 <img width="2870" height="1578" alt="VideoEjercicio11" src="https://github.com/user-attachments/assets/28f59ee5-172b-4e9e-a6ac-5b71f56a4069" />
 
